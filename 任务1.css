@@ -1,0 +1,70 @@
+*{
+	padding:0;
+	margin: 0;
+}
+.zheng{
+	float: left;
+	padding: 13%;
+	background-color: yellow;
+	margin:5px;
+	border-radius: 20%;
+	/*border: 5px solid black;*/
+}
+.frame{
+	position: absolute;
+	left: 50%;
+	margin-left: -20%;
+	width: 50%;
+	/*border: 5px solid black;*/
+
+}
+/*#z_1{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+
+}
+#z_2{
+	position: absolute;
+	left: 120px;
+	top: 0px;
+
+}
+#z_3{
+	position: absolute;
+	left: 240px;
+	top: 0px;
+}
+#z_4{
+	position: absolute;
+	left: 120px;
+	top: 120px;
+}
+
+#z_5{
+	position: absolute;
+	left: 240px;
+	top: 120px;
+}
+#z_6{
+	position: absolute;
+	left: 120px;
+	top: 240px;
+}
+#z_7{
+	position: absolute;
+	left: 240px;
+	top: 240px;
+}
+#z_8{
+	position: absolute;
+	left: 0px;
+	top: 120px;
+}
+#z_9{
+	position: absolute;
+	left: 0px;
+	top: 240px;
+}
+
+*/
