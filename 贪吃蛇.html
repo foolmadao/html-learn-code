@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>贪吃蛇</title>
+</head>
+<body>
+	<!-- 框架 -->
+	<div style="width:1000px;height:600px;border: 1px solid black;position: absolute; left: 140px;top: 180px;"></div>
+	<!-- 食物 -->
+	<div style="width:20px; height:20px; background-color: green; position: absolute;left:-1000px; top: -1000px; border: 0 solid;border-radius: 5px;"></div>
+	<!-- 开始按钮 -->
+	<div class="start" style="width:200px; height:80px; background-color: yellow;margin: 20px auto; border: 1px solid yellow;border-radius: 20px;color: #f40;text-align: center; font-size: 30px;line-height: 80px">开始游戏</div>
+	<div class="score" style="width:150px; height:60px; background-color: white;margin: -20px 20px; border: 1px solid yellow;border-radius: 20px;color: #f40;text-align: center; font-size: 30px;line-height: 60px">得分:0</div>
+	<!-- 🐍 -->
+	<div class="sneak" style="width:20px; height:20px; background-color: red; position: absolute;left:200px; top: 200px; border: 0 solid;border-radius: 5px;"></div>
+	<div class="sneak" style="width:20px; height:20px; background-color: yellow; position: absolute;left:180px; top: 200px; border: 0 solid;border-radius: 5px;"></div>
+	<div class="sneak" style="width:20px; height:20px; background-color: yellow; position: absolute;left:160px; top: 200px; border: 0 solid;border-radius: 5px;"></div>
+	<script>
+		var sneakhead = document.getElementsByClassName('sneak')[0];
+		var body = document.getElementsByTagName('body')[0];
+		var body1 = document.getElementsByClassName('sneak')[1];
+		var body2 = document.getElementsByClassName('sneak')[2];
+		var sneak = [sneakhead, body1, body2];
+		var food = document.getElementsByTagName('div')[1];
+		var button = document.getElementsByClassName('start')[0];
+		var score = document.getElementsByClassName('score')[0];
+		var sneaklen = 3;
+		var speed = [20,0];
+		var getfood = true;
+		var defen = 0;
+
+
+		// 生成食物
+		function getPosition(){
+			var left = parseInt(Math.random()*50)*20 + 140 + "px";
+			var top = parseInt(Math.random()*30)*20 + 180 + "px";
+			var judge = true;
+			for (var i = 0; i < sneaklen; i++) {
+					if (left == sneak[i].style.left && top == sneak[i].style.top) {
+						judge = false;			
+					}
+				}
+			if (judge) {
+				return [left, top];
+			}
+			else{
+				getPosition();
+			}
+		}
+
+		
+
+		// 运动过程判断
+		function start() {
+			function gameover() {
+				clearInterval(move);
+				alert('gameover!!!');
+			}
+			var move = setInterval(function(){
+				for (var i = (sneaklen - 1); i > 0; i--) {
+					sneak[i].style.left = sneak[(i-1)].style.left;
+					sneak[i].style.top = sneak[(i-1)].style.top;
+				}
+				sneakhead.style.left = parseInt(sneakhead.style.left) + speed[0] + 'px';
+				sneakhead.style.top = parseInt(sneakhead.style.top) + speed[1] + 'px';
+				if (parseInt(sneakhead.style.left) < 140 || parseInt(sneakhead.style.left)>1130|| parseInt(sneakhead.style.top) > 770 || parseInt(sneakhead.style.top) < 180) {
+					gameover()
+				}
+				if (getfood) {
+					var pos = getPosition();
+					food.style.left = pos[0];
+					food.style.top = pos[1];
+					getfood = false;
+				}
+				if (sneakhead.style.left == food.style.left && sneakhead.style.top == food.style.top) {
+					getfood = true;
+					var div = document.createElement('div');
+					div.style="width:20px; height:20px; background-color: yellow; position: absolute;left:-160px; top: -200px; border:0 solid;border-radius: 5px;";
+					div.className = 'sneak';
+					defen += 100;
+					score.innerHTML = '得分: '+ defen;
+					body.appendChild(div);
+					sneak.push(div);
+					sneaklen ++;
+				}
+				for (var i = 1; i < sneaklen; i++) {
+					if (sneakhead.style.left == sneak[i].style.left && sneakhead.style.top == sneak[i].style.top) {
+						gameover();
+					}
+				}
+
+			},200)
+			
+		}
+		button.onmousedown = function(){
+			start();
+		}
+		
+		document.onkeypress = function(e){
+			if (e.key == 'w') {
+				if (speed[1] == 0) {
+					speed = [0,-20];
+				}
+			}
+			if (e.key == 's') {
+				if (speed[1] == 0) {
+					speed = [0,20];
+				}
+			}
+			if (e.key == 'a') {
+				if (speed[0] == 0) {
+					speed = [-20,0];
+				}
+				
+			}
+			if (e.key == 'd') {
+				if (speed[0] == 0) {
+					speed = [20,0];
+				}
+			}
+		}
+
+
+	</script>
+</body>
+</html>
