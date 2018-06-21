@@ -8,10 +8,22 @@
 	<!-- 框架 -->
 	<div style="width:1000px;height:600px;border: 1px solid black;position: absolute; left: 140px;top: 180px;"></div>
 	<!-- 食物 -->
-	<div style="width:20px; height:20px; background-color: green; position: absolute;left:-1000px; top: -1000px; border: 0 solid;border-radius: 5px;"></div>
+	<div style="width:20px; height:20px; background-color: green; position: absolute;left:-1000px; top: -1000px; border: 0 solid;border-radius: 10px;"></div>
 	<!-- 开始按钮 -->
-	<div class="start" style="width:200px; height:80px; background-color: yellow;margin: 20px auto; border: 1px solid yellow;border-radius: 20px;color: #f40;text-align: center; font-size: 30px;line-height: 80px">开始游戏</div>
-	<div class="score" style="width:150px; height:60px; background-color: white;margin: -20px 20px; border: 1px solid yellow;border-radius: 20px;color: #f40;text-align: center; font-size: 30px;line-height: 60px">得分:0</div>
+	<div class="start" style="width:200px; height:80px; background-color: yellow;margin-left: 500px; border: 1px solid yellow;border-radius: 20px;color: #f40;text-align: center; font-size: 30px;line-height: 80px">开始游戏</div>
+	<!-- 得分按钮 -->
+	<div class="score" style="width:150px; height:60px; background-color: white;margin: 20px 20px; border: 1px solid yellow;border-radius: 20px;color: #f40;text-align: center; font-size: 30px;line-height: 60px">得分:0</div>
+	<!-- 计时器 -->
+	<div style="position:absolute; top:100px;left: 800px;">剩余时间 <input type="text" value=300s></div>
+	<!-- 加速物体 -->
+	<div class="accurate" style="width:20px; height:20px; background-color: black; position: absolute;left:-1000px; top: -1000px; border: 0 solid;border-radius: 10px;"></div>
+	<div class="howplay" style="color:#999;position: absolute; left: 400px;top: 400px;">
+		<p>操作说明：wsad控制上下左右</p>
+		<p>绿色球吃了得分</p>
+		<p>黑色球吃了加速</p>
+		<p>时间到了结束，撞墙撞自己都会死</p>
+	</div>
+
 	<!-- 🐍 -->
 	<div class="sneak" style="width:20px; height:20px; background-color: red; position: absolute;left:200px; top: 200px; border: 0 solid;border-radius: 5px;"></div>
 	<div class="sneak" style="width:20px; height:20px; background-color: yellow; position: absolute;left:180px; top: 200px; border: 0 solid;border-radius: 5px;"></div>
@@ -25,10 +37,15 @@
 		var food = document.getElementsByTagName('div')[1];
 		var button = document.getElementsByClassName('start')[0];
 		var score = document.getElementsByClassName('score')[0];
+		var input = document.getElementsByTagName('input')[0];
 		var sneaklen = 3;
 		var speed = [20,0];
 		var getfood = true;
 		var defen = 0;
+		var frg = 400;
+		var lajiao = document.getElementsByClassName('accurate')[0];
+		var getlajiao = true;
+		var gamestop = true;
 
 
 		// 生成食物
@@ -53,45 +70,71 @@
 
 		// 运动过程判断
 		function start() {
-			function gameover() {
-				clearInterval(move);
-				alert('gameover!!!');
-			}
-			var move = setInterval(function(){
-				for (var i = (sneaklen - 1); i > 0; i--) {
-					sneak[i].style.left = sneak[(i-1)].style.left;
-					sneak[i].style.top = sneak[(i-1)].style.top;
+			if(gamestop){
+				gamestop = false;
+				function gameover() {
+					clearInterval(move);
+					clearInterval(time);
+					alert('gameover!!!');
+					gamestop = true;
 				}
-				sneakhead.style.left = parseInt(sneakhead.style.left) + speed[0] + 'px';
-				sneakhead.style.top = parseInt(sneakhead.style.top) + speed[1] + 'px';
-				if (parseInt(sneakhead.style.left) < 140 || parseInt(sneakhead.style.left)>1130|| parseInt(sneakhead.style.top) > 770 || parseInt(sneakhead.style.top) < 180) {
-					gameover()
-				}
-				if (getfood) {
-					var pos = getPosition();
-					food.style.left = pos[0];
-					food.style.top = pos[1];
-					getfood = false;
-				}
-				if (sneakhead.style.left == food.style.left && sneakhead.style.top == food.style.top) {
-					getfood = true;
-					var div = document.createElement('div');
-					div.style="width:20px; height:20px; background-color: yellow; position: absolute;left:-160px; top: -200px; border:0 solid;border-radius: 5px;";
-					div.className = 'sneak';
-					defen += 100;
-					score.innerHTML = '得分: '+ defen;
-					body.appendChild(div);
-					sneak.push(div);
-					sneaklen ++;
-				}
-				for (var i = 1; i < sneaklen; i++) {
-					if (sneakhead.style.left == sneak[i].style.left && sneakhead.style.top == sneak[i].style.top) {
-						gameover();
+				var move = setInterval(function(){
+					for (var i = (sneaklen - 1); i > 0; i--) {
+						sneak[i].style.left = sneak[(i-1)].style.left;
+						sneak[i].style.top = sneak[(i-1)].style.top;
 					}
-				}
+					sneakhead.style.left = parseInt(sneakhead.style.left) + speed[0] + 'px';
+					sneakhead.style.top = parseInt(sneakhead.style.top) + speed[1] + 'px';
+					if (parseInt(sneakhead.style.left) < 140 || parseInt(sneakhead.style.left)>1130|| parseInt(sneakhead.style.top) > 770 || parseInt(sneakhead.style.top) < 180) {
+						gameover()
+					}
+					if (getfood) {
+						var pos = getPosition();
+						food.style.left = pos[0];
+						food.style.top = pos[1];
+						getfood = false;
+					}
+					if (getlajiao) {
+						var pos = getPosition();
+						lajiao.style.left = pos[0];
+						lajiao.style.top = pos[1];
+						getlajiao = false;
+					}
+					if (sneakhead.style.left == food.style.left && sneakhead.style.top == food.style.top) {
+						getfood = true;
+						var div = document.createElement('div');
+						div.style="width:20px; height:20px; background-color: yellow; position: absolute;left:-160px; top: -200px; border:0 solid;border-radius: 5px;";
+						div.className = 'sneak';
+						defen += 100;
+						score.innerHTML = '得分: '+ defen;
+						body.appendChild(div);
+						sneak.push(div);
+						sneaklen ++;
+					}
+					if (sneakhead.style.left == lajiao.style.left && sneakhead.style.top == lajiao.style.top && frg > 50) {
+						getlajiao = true;
+						frg -= 50;
+						clearInterval(move);
+						gamestop = true;
+						start();
 
-			},200)
-			
+
+
+					}
+					for (var i = 1; i < sneaklen; i++) {
+						if (sneakhead.style.left == sneak[i].style.left && sneakhead.style.top == sneak[i].style.top) {
+							gameover();
+						}
+					}
+
+				},frg)
+				var time =setInterval(function(){
+					input.value = parseInt(input.value) - 1 + 's';
+					if (input.value == '0s') {
+						gameover()
+					}
+				},1000)
+			}		
 		}
 		button.onmousedown = function(){
 			start();
@@ -120,6 +163,7 @@
 				}
 			}
 		}
+
 
 
 	</script>
