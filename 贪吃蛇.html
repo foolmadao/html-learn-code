@@ -46,6 +46,7 @@
 		var lajiao = document.getElementsByClassName('accurate')[0];
 		var getlajiao = true;
 		var gamestop = true;
+		var explain = document.getElementsByClassName('howplay')[0];
 
 
 		// 生成食物
@@ -115,6 +116,7 @@
 						getlajiao = true;
 						frg -= 50;
 						clearInterval(move);
+						clearInterval(time);
 						gamestop = true;
 						start();
 
@@ -132,6 +134,9 @@
 					input.value = parseInt(input.value) - 1 + 's';
 					if (input.value == '0s') {
 						gameover()
+					}
+					if (input.value == '290s') {
+						explain.style.display = 'none';
 					}
 				},1000)
 			}		
