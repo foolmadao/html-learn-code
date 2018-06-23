@@ -17,7 +17,7 @@ for (var i = 0; i < 15; i++){
     for(k = 0; k < boomList.length; k++){
         if(boomList[k] == a){
             value = false;
-            i--
+            i--;
         }
     }
     if(value){
@@ -26,8 +26,19 @@ for (var i = 0; i < 15; i++){
 }
 
 function gameover() {
-    alert('中弹了~~~~');
-    div.style = 'display: none;';
+    for (var i = 0; i < 10; i++){
+        for (var j = 0; j < 10; j++){
+            if (block[i][j].className == 'boom'){
+                block[i][j].style= 'background-image:url("boom.jpg");background-size:100%;';
+            }
+            
+        }
+    }
+    setTimeout(function(){
+        alert('中弹了~~~~');
+        div.style = 'display: none;';
+    }, 50);
+    
 }
 
 for (var i = 0; i < 10; i++) {
@@ -38,7 +49,7 @@ for (var i = 0; i < 10; i++) {
                 event.preventDefault();
                 if (e.button == 0) {
                     if (block[i][j].className == 'boom') {
-                        block[i][j].style.backgroundColor = 'black';
+                        block[i][j].style= 'background-image:url("boom.jpg");background-size:100%;';
                         setTimeout(function(){
                             gameover();
                         }, 50);
@@ -48,11 +59,11 @@ for (var i = 0; i < 10; i++) {
                     }
                 }
                 if (e.button == 1) {
-                    if (block[i][j].style.backgroundColor == '') {
-                        block[i][j].style.backgroundColor = 'red';
+                    if (block[i][j].style.backgroundImage == '') {
+                        block[i][j].style = 'background-image:url("banner.jpg");background-size:100%';
                     }
-                    else if (block[i][j].style.backgroundColor == 'red') {
-                        block[i][j].style.backgroundColor = '';
+                    else if (block[i][j].style.backgroundImage) {
+                        block[i][j].style.backgroundImage = '';
                     }
                     
                 }   
