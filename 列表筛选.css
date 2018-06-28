@@ -1,0 +1,77 @@
+*{
+    padding: 0;
+    margin:0;
+    list-style: none;
+}
+.wrapper{
+    position: relative;
+    width: 500px;
+    margin: 150px auto;
+    border: 1px solid #ccc;
+}
+.fliter{
+    width: 500px;
+    height: 80px;
+}
+input{
+    width: 50%;
+    height: 30px;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 15px;
+    border: 1px solid #ccc;
+}
+.fliter ul{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.fliter ul li{
+    float: left;
+    margin-left: 15px;
+    padding: 6px;
+    border: 2px solid orange;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #f40;
+    height: 25px;
+    line-height: 25px;
+}
+
+.fliter ul li:hover{
+    border:2px solid #bbb;
+}
+.fliter ul .active{
+    background-color: #f40;
+    color: #fff;
+}
+.list ul li{
+    width: 90%;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+}
+.list ul li img{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #bbb;
+}
+.list ul li span{
+    display: inline-block;
+    text-align: center;
+    font-size: 18px;
+    margin: 5px;
+    vertical-align: top;
+}
+.list ul li .name{
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+
+}
+.list ul li .des{
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 40px;
+}
