@@ -9,3 +9,5 @@ learn html code
 【扫雷】（https://foolmadao.github.io/html-learn-code/扫雷/扫雷.html ）
 
 【列表筛选】（https://foolmadao.github.io/html-learn-code/列表筛选.html ）
+
+【百度首页】（https://foolmadao.github.io/html-learn-code/baidu.html ）
