@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>战队列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            background: url(Dota_bg.jpg);
+        }
+
+        .level2form {
+            width: 500px;
+            min-height: 500px;
+            margin: 37px auto;
+            position: relative;
+        }
+
+        .level2form .team-form {
+            width: 500px;
+            height: 100px;
+            border: 1px solid rgb(0, 255, 191);
+            background-color: #ccc;
+        }
+
+        .level2form .team-form img {
+            height: 80px;
+            width: 80px;
+            margin-top: 10px;
+        }
+
+        .level2form .team-form .name {
+            font-size: 30px;
+            line-height: 100px;
+            text-align: center;
+            display: inline-block;
+            position: absolute;
+            margin-left: 30px;
+        }
+
+        .level2form .team-form .down {
+            display: inline-block;
+            background: url(downward1.png);
+            width: 40px;
+            height: 40px;
+            background-size: 100%;
+            position: absolute;
+            right: 10px;
+            margin-top: 30px;
+        }
+
+        .level2form .member {
+            height: 250px;
+            width: 500px;
+            display: none;
+        }
+
+        .level2form .member div {
+            height: 50px;
+            width: 500px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            color: #ccc;
+            background: url(form.jpg);
+            background-size: 100%;
+        }
+
+        .rotate {
+
+            transform-origin: center center;
+            transform: rotate(180deg);
+
+            -webkit-transform: rotate(180deg);
+
+            -moz-transform: rotate(180deg);
+
+            -ms-transform: rotate(180deg);
+
+            -o-transform: rotate(180deg);
+
+            transition: transform 0.2s;
+            -moz-transition: -moz-transform 0.2s;
+
+            -moz-transition: -moz-transform 0.2s;
+
+            -o-transition: -o-transform 0.2s;
+
+            -ms-transition: -ms-transform 0.2s;
+
+        }
+
+        .rotate1 {
+
+            transform-origin: center center;
+
+            transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+
+            -moz-transform: rotate(deg);
+
+            -ms-transform: rotate(0deg);
+
+            -o-transform: rotate(0deg);
+
+            transition: transform 0.2s;
+
+            -moz-transition: -moz-transform 0.2s;
+
+            -moz-transition: -moz-transform 0.2s;
+
+            -o-transition: -o-transform 0.2s;
+
+            -ms-transition: -ms-transform 0.2s;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="level2form">
+        <div class="IG team-form">
+            <img src="IG-logo.jpg" alt="">
+            <span class="name">Invictus Gaming</span>
+            <span class="down"></span>
+        </div>
+        <div class="igmember member">
+            <div>boboka</div>
+            <div>大球</div>
+            <div>XXS</div>
+            <div>Srf</div>
+            <div>OoO</div>
+        </div>
+        <div class="VG team-form">
+            <img src="VG-logo.jpg" alt="">
+            <span class="name">Vici Gaming</span>
+            <span class="down"></span>
+        </div>
+        <div class="vgmember member">
+            <div>Young eLeVeN</div>
+            <div>LaNm</div>
+            <div>Fenrir</div>
+            <div>Paparazi</div>
+            <div>ori</div>
+        </div>
+        <div class="LGD team-form">
+            <img src="LGD-logo.jpg" alt="">
+            <span class="name">PSG.LGD</span>
+            <span class="down"></span>
+        </div>
+        <div class="lgdmember member">
+            <div>Ame</div>
+            <div>Maybe</div>
+            <div>Chalice</div>
+            <div>Fy</div>
+            <div>xNova</div>
+        </div>
+        <div class="NEWBEE team-form">
+            <img src="Newbee-logo.jpg" alt="">
+            <span class="name">Newbee</span>
+            <span class="down"></span>
+        </div>
+        <div class="nbmember member">
+            <div>ddc</div>
+            <div>Yang</div>
+            <div>Sylar</div>
+            <div>Fade</div>
+            <div>Freeze</div>
+        </div>
+        <div class="TS team-form">
+            <img src="TS-logo.png" alt="">
+            <span class="name">Team Serenity</span>
+            <span class="down"></span>
+        </div>
+        <div class="tsmember member">
+            <div>之之之</div>
+            <div>XinQ</div>
+            <div>XXSJ</div>
+            <div>Pyw</div>
+            <div>?</div>
+        </div>
+    </div>
+    <script src="jquery/jquery-3.3.1.js"></script>
+    <script>
+        var condition = [0, 0, 0, 0, 0]
+        function check(j) {
+            if (condition[j]) {
+                condition[j] = 0;
+                $('.team-form').eq(j).children('.down').removeClass('rotate');
+                $('.team-form').eq(j).children('.down').addClass('rotate1')
+            }
+            else if (!condition[j]) {
+                for (var i = 0; i < 5; i++) {
+                    if (condition[i]) {
+                        condition[i] = 0;
+                        $('.member').eq(i).slideUp();
+                        $('.team-form').eq(i).children('.down').removeClass('rotate');
+                        $('.team-form').eq(i).children('.down').addClass('rotate1')
+                    }
+                }
+                condition[j] = 1;
+            }
+        }
+        $('.IG').click(function () {
+            $('.igmember').slideToggle();
+            $('.IG .down').removeClass('rotate1');
+            $('.IG .down').addClass('rotate');
+            check(0);
+        })
+        $('.VG').click(function () {
+            $('.vgmember').slideToggle();
+            $('.VG .down').removeClass('rotate1');
+            $('.VG .down').addClass('rotate');
+            check(1);
+        })
+        $('.LGD').click(function () {
+            $('.lgdmember').slideToggle();
+            $('.LGD .down').removeClass('rotate1');
+            $('.LGD .down').addClass('rotate');
+            check(2);
+        })
+        $('.NEWBEE').click(function () {
+            $('.nbmember').slideToggle();
+            $('.NEWBEE .down').removeClass('rotate1');
+            $('.NEWBEE .down').addClass('rotate');
+            check(3);
+        })
+        $('.TS').click(function () {
+            $('.tsmember').slideToggle();
+            $('.TS .down').removeClass('rotate1');
+            $('.TS .down').addClass('rotate');
+            check(4);
+        })
+
+
+    </script>
+</body>
+
+</html>
