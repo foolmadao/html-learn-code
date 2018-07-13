@@ -13,3 +13,5 @@ learn html code
 【百度首页】（https://foolmadao.github.io/html-learn-code/baidu.html ）
 
 【下拉二级菜单】（https://foolmadao.github.io/html-learn-code/下拉菜单（ti战队列表）/TI战队下拉菜单.html ）
+
+【豆瓣音乐】（https://foolmadao.github.io/html-learn-code/豆瓣音乐/douban.html ）
