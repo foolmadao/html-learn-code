@@ -1,0 +1,365 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    position: relative;
+    min-width: 1100px;
+}
+.navWrap{
+    position: relative;
+    height: 28px;
+    width: 100%;
+    background-color: #545652;
+}
+.navWrap ul{
+    margin-left: 20px;
+}
+.nav li{
+    float: left;
+    height: 28px;
+    width: 48px;
+    font-size: 12px;
+    line-height: 28px;
+}
+.login li{
+    float: right;
+    height: 28px;
+    width: 48px;
+    font-size: 12px;
+    line-height: 28px;
+}
+.navWrap ul li a{
+    color: #d5d5d5;
+}
+.navWrap ul li a:hover{
+    color: #fff;
+}
+.login .download:hover{
+    color: #fff;
+}
+.login .download{
+    width: 100px;
+    cursor: pointer;
+    color: #d5d5d5;
+}
+.qrWrap{
+    position: absolute;
+    width: 211px;
+    height: 500px;
+    top: 28px;
+    right: 44px;
+    text-align: center;
+    display: none;
+    background-color: #fff;
+    z-index: 5;
+}
+.qrWrap span{
+    display: block;
+}
+.qrWrap .doubanPic{
+    height: 100px;
+    width: 100px;
+    background: url(https://img3.doubanio.com/dae/accounts/resources/321e246/shire/assets/nav_doubanapp_6.png);
+    margin: 0 50px;
+    margin-top: 60px;
+}
+.qrWrap .name{
+    margin-top: 20px;;
+    font-size: 24px;
+    font-weight: 400;
+}
+.qrWrap .qrPic{
+    background: url(https://img3.doubanio.com/dae/accounts/resources/321e246/shire/assets/nav_doubanapp_6_qrcode.png);
+    height:150px;
+    width: 150px;
+    margin: 20px auto;
+}
+.qrWrap span a{
+    font-size: 12px;
+    margin: 3px;
+}
+.searchWrap{
+    position: relative;
+    height: 115px;
+    min-width: 1100px;
+    background: #f0f3ef;
+}
+.searchWrap .searchNavBox{
+    height: 115px;
+    position: relative;
+    margin: 0 auto;
+    width: 1100px;
+}
+.searchWrap .searchNavBox .searchBox{
+    height: 74px;
+    width: 100%;
+}
+.searchWrap .searchNavBox .searchBox .logo{
+    position: relative;
+    height: 74px;
+}
+.searchWrap .searchNavBox .searchBox div a{
+    display: block;
+    width: 100%;
+    height:100%;
+    color: rgb(255, 123, 0);
+    font-weight: 550;
+    font-size: 30px;
+    line-height: 74px;
+}
+.searchWrap .searchNavBox .navBox{
+    height: 40px;
+    width: 100%;
+}
+.searchWrap .searchNavBox .navBox ul li{
+    float: left;
+    margin-right: 25px;
+}
+.navBox ul li a{
+    font-size: 14px;
+    color: #555d53;
+}
+.navBox ul li a:hover{
+    color: #fff;
+    background: #555d53;
+}
+.searchWrap hr{
+    width: 4000px;
+    margin-left: -1000px;
+    border-color:#fff;
+}
+.searchWrap .searchNavBox .searchBox .search{
+    position: absolute;
+    height: 74px;
+    width: 900px;
+    top: 0;
+    left: 130px;
+}
+.search div{
+    display: inline-block;
+    width: 470px;
+    height: 35px;
+    margin-top: 23px;
+    margin-left: 30px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+}
+#input{
+    width: 450px;
+    height: 30px;
+    margin-left: 15px;
+    outline: none;
+    text-align: left;
+    border: none;
+}
+#submit{
+    height: 35px;
+    width: 37px;
+    border: none;
+    margin-left: -5px;
+    vertical-align: -17px;
+    background: url(https://img3.doubanio.com/dae/accounts/resources/19507ad/music/assets/nav_mu_bg.png?s=1) no-repeat 0 -40px;
+    cursor: pointer;
+}
+.contextWrap{
+    width: 1100px;
+    height: 2640px;
+    margin-top: 40px;
+    position: relative;
+    margin: 50px auto;
+}
+#swiper{
+    position: relative;
+    width: 675px;
+    height: 250px;
+    text-align: center;
+    overflow: hidden;
+}
+.contextWrap .aside{
+    position: absolute;
+    right: 60px;
+    top: 0;
+    width: 300px;
+    height: 2640px;
+    /* border: 1px solid #ccc; */
+}
+.join{
+    text-align: center;
+    position: relative;
+    width: 300px;
+    height: 100px;
+}
+.join .join-block{
+    margin-top: 20px;
+    height: 57px;
+    width: 98px;
+    float: left;
+    text-align: center;
+    color: #138A64;
+    font-size: 17px;
+}
+.join .join-block span{
+    display: block;
+}
+.join .join-block a{
+    color: #138A64;
+    font-size: 17px;
+    font-weight: 600;
+}
+.join .join-block a:hover{
+    color:#fff;
+    background-color: #138A64;
+}
+.join .button{
+    position: absolute;
+    top: 75px;
+    background-color: #139D72;
+    color: #fff;
+    display: block;
+    height: 38px;
+    width: 302px;
+    line-height: 38px;
+    text-align: center;
+    font-size: 17px;
+    border-radius: 5px;
+}
+.join .button:hover{
+    opacity: 0.8;
+}
+.tag-block{
+    position: relative;
+    margin-top: 50px;
+    width: 300px;
+    height: 220px;
+}
+.tag-block .tag-head-box .tag-head{
+    font-size: 15px;
+}
+.tag-block .tag-head-box .more a{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 13px;
+    color: #999;
+}
+.tag-block .tag-head-box .more a:hover{
+    color: #fff;
+    background-color: #999;
+}
+.tag-block .table{
+    width: 300px;
+    height: 200px;
+    margin-top: 15px;
+}
+.tag-block .table ul li{
+    float: left;
+    width: 141px;
+    height: 36px;
+    padding-left: 6px;
+    font-size: 15px;
+    color: #138A64;
+    line-height: 36px;
+    border: 0.5px solid #f0f3ef;
+    cursor: pointer;
+}
+.tag-block .table ul li:hover{
+    background-color: #F5F7F8;
+}
+/* 选项卡部分 */
+#tab{
+    position: relative;
+    margin-top: 30px;
+    width: 675px;
+    height: 480px;
+    /* border: 1px solid black; */
+}
+#tab .list-head{
+    position: relative;
+    width: 100%;
+    height: 30px;
+}
+#tab .list-head .title{
+    font-size: 17px;
+    line-height: 30px;
+    margin-right: 15px;
+}
+#tab .list-head .tag{
+    font-size: 13px;
+    line-height: 30px;
+    color: #999;
+    cursor: pointer;
+    margin-left: 5px;
+}
+#tab .list-head .tag::after{
+    content: '|';
+    color: black;
+}
+#tab .list-head .active{
+    color: #138A64;
+    font-weight: bolder;
+}
+#tab .list-head .more{
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    line-height: 12px;
+    color: #999;
+    font-size: 13px;
+    cursor: pointer;
+}
+#tab .list-head .tag:hover,
+#tab .list-head .more:hover{
+    color: #138A64;
+    text-decoration-line: underline;
+}
+#tab .list-head div{
+    width: 100%;
+    border: 1px solid #138A64;
+}
+#tab .context{
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+    display: none;
+    background-color: rgb(245, 247, 248);
+}
+#tab .active1{
+    display: block;
+}
+#tab .context .list-item{
+    float: left;
+    width: 130px;
+    height: 224px;
+    margin-left: 30px;
+    text-align: center;
+
+}
+#tab .context .list-item img{
+    width: 125px;
+    height: 125px;
+    cursor: pointer;
+
+}
+#tab .context .list-item .des{
+    margin-top: 9px;
+    width: 130px;
+    height: 21px;
+    color: #999;
+    font-size: 12px;
+}
+#tab .context .list-item .name{
+    line-height: 15px;
+    margin-top: 10px;
+    width: 130px;
+    color: #777;
+    font-size: 15px;
+    cursor: pointer;
+}
+#tab .context .list-item .name:hover{
+    color: #fff;
+    background-color: #138A64;
+}

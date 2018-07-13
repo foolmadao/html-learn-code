@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#swiper .pic-frame{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+}
+#swiper .pic-frame ul li{
+    float: left;
+}
+#swiper .pnbutton{
+    position: relative;
+    width: 100%;
+}
+#swiper .pnbutton .next{
+    position: absolute;
+    right: 0;
+    height: 0px;
+    width: 0px;
+    border: 15px solid rgba(0,0,0,0);
+    border-left-color: black;
+    cursor: pointer;
+    display: none;
+}
+#swiper .pnbutton .pre{
+    position: absolute;
+    left: 0;
+    height: 0px;
+    width: 0px;
+    border: 15px solid rgba(0,0,0,0);
+    border-right-color: black;
+    cursor: pointer;
+    display: none;
+    
+}
+#swiper .change-button{
+    position: absolute;
+    bottom: 10%;
+    left: 40%;
+}
+#swiper .change-button ul li{
+    float: left;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #fff;
+
+}
+#swiper .change-button ul .active{
+    background-color: #aaa;
+}

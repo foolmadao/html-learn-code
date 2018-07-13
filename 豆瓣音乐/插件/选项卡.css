@@ -1,0 +1,92 @@
+#tab2{
+    position: relative;
+    margin-top: 30px;
+    width: 675px;
+    height: 471px;
+    /* border: 1px solid black; */
+}
+#tab2 .list-head{
+    position: relative;
+    width: 100%;
+    height: 30px;
+}
+#tab2 .list-head .title{
+    font-size: 17px;
+    line-height: 30px;
+    margin-right: 15px;
+}
+#tab2 .list-head .tag{
+    font-size: 13px;
+    line-height: 30px;
+    color: #999;
+    cursor: pointer;
+    margin-left: 5px;
+}
+#tab2 .list-head .tag::after{
+    content: '|';
+    color: black;
+}
+#tab2 .list-head .active{
+    color: #138A64;
+    font-weight: bolder;
+}
+#tab2 .list-head .more{
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    line-height: 12px;
+    color: #999;
+    font-size: 13px;
+    cursor: pointer;
+}
+#tab2 .list-head .tag:hover,
+#tab2 .list-head .more:hover{
+    color: #138A64;
+    text-decoration-line: underline;
+}
+#tab2 .list-head div{
+    width: 100%;
+    border: 1px solid #138A64;
+}
+#tab2 .context{
+    margin-top: 20px;
+    position: absolute;
+    width: 100%;
+    display: none;
+    background-color: rgb(245, 247, 248);
+}
+#tab2 .active1{
+    display: block;
+}
+#tab2 .context .list-item{
+    float: left;
+    width: 130px;
+    /* height: 224px; */
+    margin-left: 30px;
+    text-align: center;
+
+}
+#tab2 .context .list-item img{
+    width: 125px;
+    height: 125px;
+    cursor: pointer;
+
+}
+#tab2 .context .list-item .des{
+    margin-top: 9px;
+    width: 130px;
+    color: #999;
+    font-size: 12px;
+}
+#tab2 .context .list-item .name{
+    line-height: 15px;
+    margin-top: 10px;
+    width: 130px;
+    color: #777;
+    font-size: 15px;
+    cursor: pointer;
+}
+#tab2 .context .list-item .name:hover{
+    color: #fff;
+    background-color: #138A64;
+}
