@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>天气查询</title>
+    <link rel="stylesheet" href="tian.css">
+</head>
+
+<body>
+    <div class="weather-box">
+        <div class="input-wrapper">
+            <input type="text" placeholder="请输入查询城市(仅中国城市)" class="city">
+            <input type="submit" class="getdata" value="查询">
+        </div>
+        <div class="weather-head">
+            <div class="city-name"></div>
+            <div class="tem"></div>
+            <div class="weather-des"></div>
+            <div class="time"></div>
+        </div>
+        <div class="weather-future">
+            <div class="today"></div>
+            <div class="tomorrow"></div>
+            <div class="third"></div>
+        </div>
+        <div class="describe">
+            <div class="clothes"></div>
+            <div class="car"></div>
+            <div class="cold"></div>
+            <div class="sport"></div>
+            <div class="ultral-violet"></div>
+        </div>
+    </div>
+    <script src="jquery/jquery-3.3.1.js"></script>
+    <script>
+
+        var city = '大理',
+            tem,
+            weatherDes,
+            time;
+        $('.getdata').click(function () {
+            city = $('.city').val() || '大理';
+            oScript = $('<script><//script>').attr('src', 'http://api.map.baidu.com/telematics/v3/weather?location=' + city + '&output=json&ak=H7W5CxI0BPzKtwGcBHmpGPAz50xP1Qjw&callback=bb');
+            $('body').append(oScript)
+        })
+        var oScript = $('<script><//script>').attr('src', 'http://api.map.baidu.com/telematics/v3/weather?location=' + city + '&output=json&ak=H7W5CxI0BPzKtwGcBHmpGPAz50xP1Qjw&callback=bb');
+        $('body').append(oScript)
+        function bb(data) {
+            $('.city-name').html(city);
+            $('.tem').html(data.results[0].weather_data[0].temperature);
+            $('.weather-des').html(data.results[0].weather_data[0].weather + ' '+data.results[0].weather_data[0].wind);
+            $('.time').html(data.results[0].weather_data[0].date);
+            $('.today').html('今天 '+ data.results[0].weather_data[0].weather+ ' ' +data.results[0].weather_data[0].wind+ ' ' +data.results[0].weather_data[0].temperature)
+            $('.tomorrow').html('明天 '+ data.results[0].weather_data[1].weather+ ' ' +data.results[0].weather_data[1].wind+ ' ' +data.results[0].weather_data[1].temperature)
+            $('.third').html(data.results[0].weather_data[2].date+' '+ data.results[0].weather_data[2].weather+ ' ' +data.results[0].weather_data[2].wind+ ' ' +data.results[0].weather_data[2].temperature)
+            $('.clothes').html('今日穿搭：' + data.results[0].index[0].des)
+            $('.car').html('今日洗车：' + data.results[0].index[1].des)
+            $('.cold').html('感冒指数：' + data.results[0].index[2].des)
+            $('.sport').html('运动指数:' + data.results[0].index[3].des)
+            $('.ultral-violet').html('紫外线：' + data.results[0].index[4].des)
+            if(findStr('晴',data.results[0].weather_data[0].weather)){
+                $('.weather-head').css({"backgroundImage": "url('晴天.jpg')"})
+            }else if(findStr('阴',data.results[0].weather_data[0].weather)){
+                $('.weather-head').css({"backgroundImage": "url('阴天.jpg')"})
+            }else{
+                $('.weather-head').css({"backgroundImage": "url('雨天.jpg')","color":'#ccc'})
+            }
+            console.log(data.results[0])
+        }
+        function findStr(target,str){
+            for(var i in str){
+                if(str[i] == target){
+                    return true;
+                }
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>

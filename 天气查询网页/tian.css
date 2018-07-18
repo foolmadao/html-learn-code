@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+body{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.weather-box{
+    background-image: url('bg.jpg');
+    position: relative;
+    width: 400px;
+    border: 1px solid black;
+    margin: 100px auto;
+    background-size: 100%;
+}
+.input-wrapper{
+    height: 30px;
+    width: 100%;
+    /* text-align: center; */
+    margin-top: 5px;
+    
+}
+.input-wrapper .city{
+    height:25px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 17px;
+}
+.input-wrapper .getdata{
+    border: none;
+    height: 25px;
+    width: 80px;
+    font-size: 17px;
+    line-height: 17px;
+}
+.weather-head{
+    width: 100%;
+    height: 200px;
+    /* border: 1px solid black; */
+    background-image: url('晴天.jpg');
+    background-size: 100%;
+    font-weight: 700;
+}
+.weather-head .city-name{
+    height: 60px;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    line-height: 60px;
+    font-weight: 700;
+    
+}
+.weather-head .weather-des,
+.weather-head .tem{
+    margin-top: 10px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 25px;
+}
+.weather-head .time{
+    font-size: 18px;
+    margin-top: 15px;
+}
+.weather-future div{
+    border: 1px solid #ccc;
+    height: 50px;
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+    /* margin-top: 10px; */
+}
+.describe div{
+    font-size: 16px;
+    margin-top: 20px;
+}
