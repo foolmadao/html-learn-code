@@ -87,6 +87,7 @@ div .text-input{
     background-image: url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/soutu/img/camera_new_5606e8f.png);
 }
 .search-input{
+    position: absolute;
     width: 100px;
     height: 36px;
     border: 0;
@@ -275,4 +276,28 @@ div .login-form .other-login .user{
     position: absolute;
     top: 0;
     display: none;
+}
+.relative{
+    /* padding-top: 10px; */
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-top-color: #fff;
+    /* display: none; */
+}
+.relative li{
+    height: 30px;
+    margin: 0 5px;
+    color: black;
+    vertical-align: middle;
+}
+.relative li a{
+    display: block;
+    width: 530px;;
+    height: 30px;
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+}
+.relative li:hover{
+    background-color: #ccc;
 }

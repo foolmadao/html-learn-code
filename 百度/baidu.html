@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> -->
-    <title>baidu</title>
+    <title>百度一下，你就知道</title>
     <link rel="stylesheet" href="baidu.css">
+    <link rel="icon" sizes="any" mask href="//www.baidu.com/img/baidu_85beaf5496f291521eb75ba38eacbd87.svg">
 </head>
 
 <body>
@@ -65,7 +66,7 @@
                 <img src="https://www.baidu.com/img/bd_logo1.png" alt="">
             </div>
             <div class="searchform">
-                <span>
+                <span class="input-wrapper">
                     <input class="text-input" type="text">
                     <span></span>
                 </span>
@@ -156,20 +157,59 @@
             $('.page2').css('display', 'none');
             $('.page2').css('backgroundColor', 'rgba(0,0,0,0)');
         })
-        $('div .login-form').mousedown(function(e){
+        $('div .login-form').mousedown(function (e) {
             var disX = e.clientX - $('div .login-form').offset().left;
             var disY = e.clientY - $('div .login-form').offset().top;
-            $(document).mousemove(function(a){
-                var left = (a.clientX - disX) +'px';
+            $(document).mousemove(function (a) {
+                var left = (a.clientX - disX) + 'px';
                 var top = (a.clientY - disY) + 'px';
                 console.log(top, left)
-                $('div .login-form').css({'top': top ,'left' : left})
-                console.log($('div .login-form').offset().left,$('div .login-form').offset().top)
+                $('div .login-form').css({ 'top': top, 'left': left })
+                console.log($('div .login-form').offset().left, $('div .login-form').offset().top)
             })
         })
-        $('div .login-form').mouseup(function(){
+        $('.search-input').click(function(){
+            window.location.href="https://www.baidu.com/s?wd=" + $('.text-input').val();
+        })
+        $('html').keydown(function(e){
+            if(e.key === 'Enter'){
+                window.location.href="https://www.baidu.com/s?wd=" + $('.text-input').val();
+            }
+        })
+
+        $('div .login-form').mouseup(function () {
             $(document).off('mousemove');
         })
+        var word = '';
+        var timer;
+        var oul = $('<ul></ul>').addClass('relative');
+        $('.input-wrapper').append(oul);
+
+        $('.text-input').on('input', function () {
+            clearTimeout(timer);
+            word = this.value;
+            timer = setTimeout(function () {
+                var oScript = $('<script><//script>').attr('src', 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + word + '&cb=cbfn&_=1531889108064');
+                $('body').append(oScript);
+            }, 200)
+        })
+        $('.text-input').on('focus',function(){
+            $('.relative').css('display','block');
+        })
+        $('.text-input').on('blur',function(){
+            setTimeout(function(){
+                $('.relative').css('display','none');
+            }, 500);    
+        })
+        function cbfn(data) {        
+            var str = '';
+            var len = data.s.length;
+            for(var i = 0; i < len ; i++){
+                str += '<li><a href="https://www.baidu.com/s?wd=' + data.s[i] + '">' + data.s[i] + '</a></li>'
+            }
+            $('.relative').html(str);
+        }
+
     </script>
 </body>
 
