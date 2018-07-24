@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    min-width: 1200px;
+    position: relative;
+}
+.wrapper{
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+.wrapper ul{
+    display: inline-block;
+}
+.wrapper ul li{
+    float: left;
+    width: 300px;
+}
+.wrapper ul li img{
+    width: 250px;
+}
+.wrapper ul li span{
+    display: block;
+}
+.load{
+    font-size: 30px;
+    color: #ccc;
+    text-align: center;
+}
