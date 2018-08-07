@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rotatePic</title>
+    <link rel="stylesheet" href="rotate.css">
+</head>
+<body>
+    <div class="wrapper init">
+        <ul class="content">
+            <li class="item">
+                <div class="inner">
+                    <div class="bg"></div>
+                    <div class="title">血魔</div>
+                    <div class="dir">
+                        <div class="header">The search for blood begins.</div>
+                        <div class="close">X</div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="inner">
+                    <div class="bg"></div>
+                    <div class="title">影魔</div>
+                    <div class="dir">
+                        <div class="header"> I'll take that soul if you're not using it.</div>
+                        <div class="close">X</div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="inner">
+                    <div class="bg"></div>
+                    <div class="title">哈斯卡</div>
+                    <div class="dir">
+                        <div class="header">Great honors await you in the Nothl Realm.</div>
+                        <div class="close">X</div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="inner">
+                    <div class="bg"></div>
+                    <div class="title">斧王</div>
+                    <div class="dir">
+                        <div class="header">Axe warms his blade in your guts!</div>
+                        <div class="close">X</div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="inner">
+                    <div class="bg"></div>
+                    <div class="title">黑鸟</div>
+                    <div class="dir">
+                        <div class="header" style="color: #000">My wings beat where your heart does not.</div>
+                        <div class="close">X</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        setTimeout(function(){
+            $('.wrapper').removeClass('init');
+        }, 200);
+        $('.item').click(function(){
+            $(this).addClass('choosed');
+            $('.content').addClass('active');
+        })
+        $('.close').click(function(e){
+            e.stopPropagation();
+            $('.choosed').removeClass('choosed')
+            $('.content').removeClass('active');
+        })
+    </script>
+</body>
+</html>
