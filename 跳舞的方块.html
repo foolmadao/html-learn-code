@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跳舞的骚块加强版</title>
+    <style>
+        .wrap {
+            position: relative;
+            transform-style: preserve-3d;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            margin-top: 150px;
+            animation: move 12s linear infinite;
+            /* display: none; */
+        }
+        .wrap div {
+            position: absolute;
+            top:0px;
+            left:0px;
+            width: 200px;
+            height: 200px;
+            /* opacity: 0.5; */
+            color: white;
+            font-size: 50px;
+            text-align: center;
+            line-height: 200px;
+            transform-style: preserve-3d;
+        }
+
+        .box1 {
+            background: rgba(89, 89, 202,0.5);
+            transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, 100px);
+        }
+
+        .box2 {
+            background: rgba(120, 233, 120,0.5);
+            transform: rotate3d(0, 1, 0, 180deg) translate3d(0, 0, 100px);
+        }
+
+        .box3 {
+            transform: rotate3d(0, 1, 0, 270deg) translate3d(0, 0, 100px);
+            background: rgba(233, 182, 72,0.5);
+        }
+
+        .box4 {
+            transform: rotate3d(0, 1, 0, 360deg) translate3d(0, 0, 100px);
+            background: rgba(215, 102, 238,0.5);
+        }
+
+        .box5 {
+            background: rgba(235, 110, 110,0.5);
+            transform: rotate3d(1, 0, 0, 90deg) translate3d(0, 0, 100px);
+        }
+
+        .box6 {
+            background: rgba(201, 123, 94,0.5);
+            transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, 100px);
+        }
+
+        @keyframes move {
+            0% {
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, 0deg);
+            }
+            100% {
+                transform: rotate3d(1, 0, 0, 360deg) rotate3d(0, 1, 0, 360deg);
+            }
+        }
+
+        @keyframes run {
+            0%{
+                transform: translateZ(0px);
+
+            }
+            50% {
+                transform: translateZ(100px);
+            }
+            100%{
+                transform: translateZ(0px);
+
+            }
+        }
+
+        .wrap .box .item {
+            position: absolute;
+            /* transform:translate3d(0, 0, 100px); */
+            animation: run 6s linear infinite;
+        }
+
+        .item1 {
+            background: rgba(89, 89, 202,0.5);
+        }
+
+        .item2 {
+            background: rgba(120, 233, 120,0.5);
+
+        }
+
+        .item3 {
+            background: rgba(233, 182, 72,0.5);
+        }
+
+        .item4 {
+            background: rgba(215, 102, 238,0.5);
+        }
+
+        .item5 {
+            background: rgba(235, 110, 110,0.5);
+        }
+
+        .item6 {
+            background: rgba(201, 123, 94,0.5);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div class="box box1">
+            <div class="item item1">1</div>
+        </div>
+        <div class="box box2">
+            <div class="item item2">2</div>
+        </div>
+        <div class="box box3">
+            <div class="item item3">3</div>
+        </div>
+        <div class="box box4">
+            <div class="item item4">4</div>
+        </div>
+        <div class="box box5">
+            <div class="item item5">5</div>
+        </div>
+        <div class="box box6">
+            <div class="item item6">6</div>
+        </div>
+
+    </div>
+</body>
+
+</html>
