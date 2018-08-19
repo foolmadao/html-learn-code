@@ -22,4 +22,4 @@ learn html code
 
 【跳舞的方块】（https://foolmadao.github.io/html-learn-code/跳舞的方块.html ）
 
-【手动翻转立方体，涉及空间坐标变换方式（尚存在bug）】（https://foolmadao.github.io/html-learn-code/手动翻转立方体/Untitled-1.html ）
+【手动翻转立方体，涉及空间坐标变换方式（尚存在bug）】（https://foolmadao.github.io/html-learn-code/手动翻转立方体/cube.html ）
