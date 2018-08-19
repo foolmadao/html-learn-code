@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cube</title>
+    <link rel="stylesheet" href="cube.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="cube">
+            <div class="surface">1</div>
+            <div class="surface">2</div>
+            <div class="surface">3</div>
+            <div class="surface">4</div>
+            <div class="surface">5</div>
+            <div class="surface">6</div>
+        </div>
+    </div>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        var position = [0,0]
+        var cubeLeft = $('.cube').offset().left,
+            cubeRight = $('.cube').offset().left + 300,
+            cubeTop = $('.cube').offset().top,
+            cubeBottom = $('.cube').offset().top + 300;
+        $('window').resize(function(){
+            cubeLeft = $('.cube').offset().left,
+            cubeRight = $('.cube').offset().left + 300,
+            cubeTop = $('.cube').offset().top,
+            cubeBottom = $('.cube').offset().top + 300;
+        })
+        var key = true;
+        var str = '';
+        var directionX = [1,0,0],
+            directionY = [0,1,0],
+            directionZ = [0,0,1]; 
+
+        function rotateX(data){
+            if(directionX[0]){
+                if(directionX[0] == 1){
+                    str += ' rotateX('+ 90 * data + 'deg)';
+                }else{
+                    str += ' rotateX('+ -90 * data + 'deg)';
+                }
+                if(data == 1){
+                    directionY = [0,directionY[2],-directionY[1]]
+                    directionZ = [0,directionZ[2],-directionZ[1]]
+                }else{
+                    directionY = [0,-directionY[2],directionY[1]]
+                    directionZ = [0,-directionZ[2],directionZ[1]]
+                }
+            }
+            if(directionY[0]){
+                if(directionY[0] == 1){
+                    str += ' rotateY('+ (-90 * data) + 'deg)';
+                }else{
+                    str += ' rotateY('+ -90 * data + 'deg)';
+                }
+                if(data == 1){
+                    directionX = [0,directionX[2],-directionX[1]]
+                    directionZ = [0,directionZ[2],-directionZ[1]]
+                }else{
+                    directionX = [0,-directionX[2],directionX[1]]
+                    directionZ = [0,-directionZ[2],directionZ[1]]
+                }
+            }
+            if(directionZ[0]){
+                if(directionZ[0] == 1){
+                    str += ' rotateZ(' + 90 * data + 'deg)';
+                }else{
+                    str += ' rotateZ(' + -90 * data + 'deg)';
+                }
+                if(data == 1){
+                    directionY = [0,directionY[2],-directionY[1]]
+                    directionX = [0,directionX[2],-directionX[1]]
+                }else{
+                    directionY = [0,-directionY[2],directionY[1]]
+                    directionX = [0,-directionX[2],directionX[1]]
+                }
+            }
+        }
+        function rotateY(data){
+            if(directionX[1]){
+                if(directionX[1] == 1){
+                    str += ' rotateX(' + -90 * data + 'deg)';
+                }else{
+                    str += ' rotateX(' + 90 * data + 'deg)';
+                }
+                if(data == 1){
+                    directionY = [directionY[2],0,-directionY[0]]
+                    directionZ = [directionZ[2],0,-directionZ[0]]
+                }else{
+                    directionY = [-directionY[2],0,directionY[0]]
+                    directionZ = [-directionZ[2],0,directionZ[0]]
+                }
+            }
+            if(directionY[1]){
+                if(directionY[1] == 1){ 
+                    str += ' rotateY(' + 90 * data + 'deg)';
+                }else{
+                    str += ' rotateY(' + -90 * data + 'deg)';
+                }
+                if(data == 1){
+                    directionX = [directionX[2],0,-directionX[0]]
+                    directionZ = [directionZ[2],0,-directionZ[0]]
+                }else{
+                    directionX = [-directionX[2],0,directionX[0]]
+                    directionZ = [-directionZ[2],0,directionZ[0]]
+                }
+            }
+            if(directionZ[1]){
+                if(directionZ[1] == 1){
+                    str += ' rotateZ(' + -90 * data + 'deg)';
+                }else{
+                    str += ' rotateZ(' + 90 * data + 'deg)';
+                }
+                if(data == 1){
+                    directionY = [directionY[2],0,-directionY[0]]
+                    directionX = [directionX[2],0,-directionX[0]]
+                }else{
+                    directionY = [-directionY[2],0,directionY[0]]
+                    directionX = [-directionX[2],0,directionX[0]]
+                }
+            }
+        }
+       
+        $('.wrapper').mouseenter(function(){
+            key = false;
+            if(position[0] <= cubeLeft && position[1] <= cubeBottom && position[1] >= cubeTop){
+                rotateY(1);
+                $('.cube').css('transform', str)  
+            }else if(position[0] >= cubeRight && position[1] <= cubeBottom && position[1] >= cubeTop){
+                rotateY(-1);
+                $('.cube').css('transform', str)
+            }else if(position[1] >= cubeBottom && position[0] <= cubeRight && position[0] >= cubeLeft){
+                rotateX(1);
+                $('.cube').css('transform', str)
+            }else if(position[1] <= cubeTop && position[0] <= cubeRight && position[0] >= cubeLeft){
+                rotateX(-1);
+                $('.cube').css('transform', str)
+            }
+        })
+        $('.wrapper').mouseleave(function(){
+            key = true;
+        })
+        $('body').mousemove(function(e){
+            if(key){
+                // console.log(position);
+                position[0] = e.clientX;
+                position[1] = e.clientY;
+            }
+        })
+    </script>
+</body>
+</html>
