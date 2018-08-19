@@ -19,3 +19,5 @@ learn html code
 【天气查询】（https://foolmadao.github.io/html-learn-code/天气查询网页/tian.html ）
 
 【转轴展开图片列表】（https://foolmadao.github.io/html-learn-code/转轴展开图片列表/rotatePic.html ）
+
+【跳舞的方块】（https://foolmadao.github.io/html-learn-code/跳舞的方块.html ）
