@@ -2,8 +2,8 @@ var colorMapping = {"0": "#ccc0b3", "2": "#eee4da", "4": "#ede0c8", "8": "#f2b17
 var my2048;
 var rows = 4;
 var cols = 4;
-var squareWidth = 100;
-var spacing = 12;
+var squareWidth = 80;
+var spacing = 10;
 var squareSet = [];
 var key = true;
 var failFlag = false;
@@ -38,6 +38,7 @@ function bindEvent(){
             move();
         }
     }
+    
     document.ontouchstart= function(e){
         var locX = e.targetTouches[0].pageX;
         var locY = e.targetTouches[0].pageY;
@@ -226,8 +227,8 @@ function createSquare(value, row, col){
     return temp;
 }
 function initBoard(){
-    my2048.style.width = cols * 100 + (cols + 1) * spacing + 'px';
-    my2048.style.height = rows * 100 + (rows + 1) * spacing + 'px';
+    my2048.style.width = cols * squareWidth + (cols + 1) * spacing + 'px';
+    my2048.style.height = rows * squareWidth + (rows + 1) * spacing + 'px';
     for(var i = 0; i < rows; i++){
         squareSet[i] = [];
         for(var j = 0; j < cols; j++){
