@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#my2048{
+    position: relative;
+    margin: 100px auto;
+    background: #bbada0
+}
+#my2048 div{
+    position: absolute;
+}
