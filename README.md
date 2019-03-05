@@ -26,4 +26,4 @@ learn html code
 
 【2048】（https://foolmadao.github.io/html-learn-code/JS2048/2048.html ）
 
-【五子棋】（https://foolmadao.github.io/Gobang-master/index.html ）
+【五子棋】（https://foolmadao.github.io/html-learn-code/Gobang-master/index.html ）
